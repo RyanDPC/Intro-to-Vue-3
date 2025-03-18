@@ -10,25 +10,41 @@
   </head>
   <body>
     <div id="app">
-      <h1>{{products}}</h1>
-      <div id="product-image">
-        <img :src="products_images" alt="Chaussette verte" />
-      </div>
-      <p>{{products_descriptions}}</p>
-      <ul>
-        <template v-for="product_size in products_size" :key="product_size.id"
-          ><li>{{product_size.id}}</li>
-        </template>
-      </ul>
+      <div class="nav-bar"></div>
+      <div class="cart">Cart({{ cart }})</div>
+      <div class="product-display">
+        <div
+          class="product-container"
+          v-for="product in variants"
+          :key="product.id"
+        >
+          <h1>{{ product.name }}</h1>
+          <div class="product-image">
+            <img :src="product.image" :alt="product.name" />
+          </div>
+          <div class="product-info">
+            <p>{{ product.description }}</p>
 
-      <p v-if="inventory => 1">In Stock</p>
-      <p v-else>Out of Stock</p>
+            <ul>
+              <li v-for="size in product.sizes" :key="size.id">
+                {{ size.name }}
+              </li>
+            </ul>
+            <p v-if="product.inventory > 0">In Stock</p>
+            <p v-else>Out of Stock</p>
+            <button class="button" @click="addToCart">Add to Cart</button>
+          </div>
+          <div class="product-tabs">
+            <a :href="url">Le Site de l'ETML</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div id="footer"><a :href="etmlsite">Le Site de l'ETML</a></div>
+
     <!-- Import Js -->
     <script src="./main.js"></script>
     <script>
-      const mountedApp = app.mount("#app") && footer.mount("#footer");
+      const mountedApp = app.mount("#app");
     </script>
   </body>
 </html>
