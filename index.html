@@ -10,23 +10,18 @@
   </head>
   <body>
     <div id="app">
-      <h1>{{product}}</h1>
-      <a :href="etmlsite">Le Site de l'ETML</a>
+      <h1>{{products}}</h1>
 
       <div id="product-image">
-        <img :src="productImage" alt="Chaussette verte" />
+        <img :src="products_images" alt="Chaussette verte" />
       </div>
-      <p>{{description}}</p>
+      <p>{{products_descriptions}}</p>
     </div>
-    <div id="test">
-      <h2>{{test}}</h2>
-      <p>{{description}}</p>
-    </div>
-
+    <div id="footer"><a :href="etmlsite">Le Site de l'ETML</a></div>
     <!-- Import Js -->
     <script src="./main.js"></script>
     <script>
-      const mountedApp = app.mount("#app") && testing.mount("#test");
+      const mountedApp = app.mount("#app") && footer.mount("#footer");
     </script>
   </body>
 </html>

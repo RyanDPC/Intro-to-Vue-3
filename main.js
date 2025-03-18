@@ -1,29 +1,28 @@
-const product = ["Socks", "Boots"];
-const productImage = [
+const etmlsite = "https://www.etml.ch/";
+const products = ["Socks", "Boots"];
+const products_images = [
   "./assets/images/socks_blue.jpg",
   "./assets/images/socks_green.jpg",
 ];
-const etmlsite = "https://www.etml.ch/";
-const description = [
+const products_descriptions = [
   "Une paire de chaussettes chaudes et confortables",
-  "Un t-shirt en coton",
+  "Une paire de chaussure haute",
 ];
+const header = Vue.createApp({});
+const nav = Vue.createApp({});
 const app = Vue.createApp({
   data() {
     return {
-      product: product[0],
-      productImage: productImage[0],
-      description: description[0],
-      etmlsite: etmlsite,
+      products: products[0],
+      products_images: products_images[0],
+      products_descriptions: products_descriptions[0],
     };
   },
 });
-const test = ["T-shirt", "Pullover"];
-const testing = Vue.createApp({
+const footer = Vue.createApp({
   data() {
     return {
-      test: test[0],
-      description: description[1],
+      etmlsite: etmlsite,
     };
   },
 });
