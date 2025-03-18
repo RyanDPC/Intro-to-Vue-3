@@ -13,31 +13,37 @@
       <div class="nav-bar"></div>
       <div class="cart">Cart({{ cart }})</div>
       <div class="product-display">
-        <div
-          class="product-container"
-          v-for="product in variants"
-          :key="product.id"
-        >
-          <h1>{{ product.name }}</h1>
+        <div class="product-container">
           <div class="product-image">
-            <img :src="product.image" :alt="product.name" />
+            <img
+              :class="{ 'out-of-stock-img': currentVariant.inventory === 0 }"
+              :src="currentVariant.image"
+              :alt="currentVariant.name"
+            />
           </div>
           <div class="product-info">
-            <p>{{ product.description }}</p>
-
+            <h1>{{ currentVariant.name }}</h1>
+            <p v-if="currentVariant.inventory > 0">In Stock</p>
+            <p v-else>Out of Stock</p>
             <ul>
-              <li v-for="size in product.sizes" :key="size.id">
+              <li v-for="size in currentVariant.sizes" :key="size.id">
                 {{ size.name }}
               </li>
             </ul>
-            <p v-if="product.inventory > 0">In Stock</p>
-            <p v-else>Out of Stock</p>
+            <div
+              v-for="variant in variants"
+              :key="variant.id"
+              @mouseover="updateVariant(variant.color)"
+              class="color-circle"
+              :style="{ backgroundColor: variant.color }"
+            ></div>
             <button class="button" @click="addToCart">Add to Cart</button>
-          </div>
-          <div class="product-tabs">
-            <a :href="url">Le Site de l'ETML</a>
+            <button class="button" @click="remove">Remove Item</button>
           </div>
         </div>
+      </div>
+      <div class="product-tabs">
+        <a :href="url">Le Site de l'ETML</a>
       </div>
     </div>
 
