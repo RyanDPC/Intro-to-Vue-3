@@ -15,6 +15,12 @@
         <img :src="products_images" alt="Chaussette verte" />
       </div>
       <p>{{products_descriptions}}</p>
+      <ul>
+        <template v-for="product_size in products_size" :key="product_size.id"
+          ><li>{{product_size.id}}</li>
+        </template>
+      </ul>
+
       <p v-if="inventory => 1">In Stock</p>
       <p v-else>Out of Stock</p>
     </div>
