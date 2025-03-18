@@ -3,6 +3,7 @@ const productImage = [
   "./assets/images/socks_blue.jpg",
   "./assets/images/socks_green.jpg",
 ];
+const etmlsite = "https://www.etml.ch/";
 const description = [
   "Une paire de chaussettes chaudes et confortables",
   "Un t-shirt en coton",
@@ -13,6 +14,7 @@ const app = Vue.createApp({
       product: product[0],
       productImage: productImage[0],
       description: description[0],
+      etmlsite: etmlsite,
     };
   },
 });

@@ -11,8 +11,10 @@
   <body>
     <div id="app">
       <h1>{{product}}</h1>
+      <a :href="etmlsite">Le Site de l'ETML</a>
+
       <div id="product-image">
-        <img v-bind:src="productImage" alt="Chaussette verte" />
+        <img :src="productImage" alt="Chaussette verte" />
       </div>
       <p>{{description}}</p>
     </div>
@@ -20,6 +22,7 @@
       <h2>{{test}}</h2>
       <p>{{description}}</p>
     </div>
+
     <!-- Import Js -->
     <script src="./main.js"></script>
     <script>
