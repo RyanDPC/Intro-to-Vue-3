@@ -10,14 +10,20 @@
   </head>
   <body>
     <div id="app">
-      <h1>{{product[0]}}</h1>
+      <h1>{{product}}</h1>
+      <div id="product-image">
+        <img v-bind:src="productImage" alt="Chaussette verte" />
+      </div>
+      <p>{{description}}</p>
     </div>
-    <div id="test"><h1>{{test[0]}}</h1></div>
+    <div id="test">
+      <h2>{{test}}</h2>
+      <p>{{description}}</p>
+    </div>
     <!-- Import Js -->
     <script src="./main.js"></script>
     <script>
-      const mountedApp = app.mount("#app");
-      const mountedTest = testing.mount("#test");
+      const mountedApp = app.mount("#app") && testing.mount("#test");
     </script>
   </body>
 </html>
