@@ -16,6 +16,7 @@ const app = Vue.createApp({
       products: products[0],
       products_images: products_images[0],
       products_descriptions: products_descriptions[0],
+      inventory: 1,
     };
   },
 });
