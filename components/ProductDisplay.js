@@ -39,6 +39,8 @@ app.component("product-display", {
         </button>
         <button class="button" v-on:click="removeItem">Remove item</button>
       </div>
+      <review-list v-if="reviews.length" :reviews="reviews"></review-list>
+      <review-form @review-submitted="addReview"></review-form>
     </div>
   </div>`,
   data() {
@@ -46,6 +48,7 @@ app.component("product-display", {
       product: "Socks",
       brand: "Vue Mastery",
       selectedVariant: 0,
+      reviews: [],
       details: ["50% cotton", "30% wool", "20% polyester"],
       variants: [
         {
@@ -69,6 +72,9 @@ app.component("product-display", {
     },
     removeItem() {
       this.$emit("remove-item", this.variants[this.selectedVariant].id);
+    },
+    addReview(review) {
+      this.reviews.push(review);
     },
     updateVariant(index) {
       this.selectedVariant = index;
